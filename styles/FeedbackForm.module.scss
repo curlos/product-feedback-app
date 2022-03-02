@@ -110,6 +110,10 @@
           padding: 15px 30px;
           font-size: 14px;
           font-weight: bold;
+
+          &:active {
+            opacity: 50%;
+          }
         }
 
         .cancel {
@@ -118,6 +122,19 @@
 
         .add {
           background-color: #AD1FEA;
+        }
+
+        .delete {
+          background-color: #D73737;
+        }
+
+        &.editButtons {
+          justify-content: space-between;
+
+          .rightButtons {
+            display: flex;
+            gap: 10px;
+          }
         }
       }
     }

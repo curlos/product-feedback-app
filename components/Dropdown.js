@@ -2,12 +2,10 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Dropdown.module.scss'
 
-const OPTIONS = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug']
-
-const CategoriesDropdown = () => {
+const Dropdown = ({ options }) => {
 
   const [open, setOpen] = useState(false)
-  const [selected, setSelected] = useState(OPTIONS[0])
+  const [selected, setSelected] = useState(options[0])
 
   return (
     <div className={styles.dropdown}>
@@ -17,7 +15,7 @@ const CategoriesDropdown = () => {
       </button>
       {open && (
         <div className={styles.dropdownContent}>
-          {OPTIONS.map((option) => (
+          {options.map((option) => (
             <div key={option} className={styles.option} onClick={() => setSelected(option)}>
               <div>{option}</div>
               {selected === option && (
@@ -31,4 +29,4 @@ const CategoriesDropdown = () => {
   )
 }
 
-export default CategoriesDropdown
+export default Dropdown
