@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { getData } from '../utils/getData'
 import styles from '../styles/RoadmapPage.module.scss'
@@ -20,10 +21,12 @@ const roadmap = () => {
       
       <div className={styles.header}>
         <div>
-          <button className={styles.backButton}>
-            <Image src="/assets/shared/icon-arrow-left.svg" alt="" width={8} height={8} />
-            Go Back
-          </button>
+          <Link href={`/`} passHref>
+            <button className={styles.backButton}>
+              <Image src="/assets/shared/icon-arrow-left.svg" alt="" width={8} height={8} />
+              Go Back
+            </button>
+          </Link>
           <h2>Roadmap</h2>
         </div>
 

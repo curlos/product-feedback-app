@@ -18,11 +18,12 @@
       background-color: transparent;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 15px;
       font-size: 14px;
       font-weight: bold;
       cursor: pointer;
       color: #FFFFFF;
+      margin-bottom: 10px;
 
       &:hover {
         text-decoration: underline;
