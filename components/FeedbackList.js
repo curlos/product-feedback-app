@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import styles from '../styles/FeedbackList.module.scss'
+import { getData } from '../utils/getData'
+import Feedback from './Feedback'
 
 const FeedbackList = () => {
+
+  const [data, setData] = useState(getData())
+
+  console.log(data)
+
   return (
     <div className={styles.container}>
       <div className={styles.topBar}>
@@ -21,20 +28,28 @@ const FeedbackList = () => {
         </button>
       </div>
 
-      <div className={styles.noFeedbackWrapper}>
-        <div className={styles.noFeedback}>
-          <Image src="/assets/suggestions/illustration-empty.svg" alt="" width={'129px'} height={'136px'}/>
+      {data.productRequests.length === 0 ? (
+        <div className={styles.noFeedbackWrapper}>
+          <div className={styles.noFeedback}>
+            <Image src="/assets/suggestions/illustration-empty.svg" alt="" width={'129px'} height={'136px'}/>
 
-          <h2>There is no feedback yet.</h2>
-          <p>Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
+            <h2>There is no feedback yet.</h2>
+            <p>Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
 
-          <div>
-            <button type="button" className={styles.addFeedback}>
-              Add Feedback
-            </button>
+            <div>
+              <button type="button" className={styles.addFeedback}>
+                Add Feedback
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className={styles.feedbackList}>
+          {data.productRequests.map((suggestion) => (
+            <Feedback key={suggestion.id} suggestion={suggestion} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

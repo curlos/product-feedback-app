@@ -18,7 +18,7 @@
 .topBarLeft {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .addFeedback {
@@ -60,4 +60,10 @@
     font-size: 16px;
     color: #647196;
   }
+}
+
+.feedbackList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
