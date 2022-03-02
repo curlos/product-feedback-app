@@ -6,6 +6,7 @@ import { getData } from '../../utils/getData'
 import Feedback from '../../components/Feedback'
 import CommentList from '../../components/CommentList'
 import styles from '../../styles/FeedbackDetailsPage.module.scss'
+import NewCommentForm from '../../components/NewCommentForm'
 
 const FeedbackDetail = () => {
   const router = useRouter()
@@ -36,6 +37,8 @@ const FeedbackDetail = () => {
         <Feedback suggestion={suggestion} />
 
         <CommentList comments={suggestion.comments} />
+
+        <NewCommentForm />
       </div>
     ) : (
       <div>Loading...</div>
