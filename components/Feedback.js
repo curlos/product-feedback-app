@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/Feedback.module.scss'
 import Link from 'next/link'
+import { getTotalComments } from '../utils/getTotalComments'
 
 const Feedback = ({ suggestion }) => {
   console.log(suggestion)
@@ -26,7 +27,11 @@ const Feedback = ({ suggestion }) => {
 
         <div className={styles.right}>
           <Image src="/assets/shared/icon-comments.svg" alt="" width={18} height={16} />
-          <div>{suggestion.comments && suggestion.comments.length}</div>
+          <div>{suggestion.comments ? (
+            getTotalComments(suggestion.comments)
+          ) : (
+            <span className={styles.noComments}>0</span>
+          )}</div>
         </div>
       </div>
     </Link>

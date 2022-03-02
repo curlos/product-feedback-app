@@ -1,19 +1,10 @@
 import React from 'react'
 import Comment from './Comment'
 import styles from '../styles/CommentList.module.scss'
+import { getTotalComments } from '../utils/getTotalComments'
 
 
 const CommentList = ({ comments }) => {
-
-  const getTotalComments = (comments) => {
-    let sum = 0
-
-    for (let comment of comments) {
-      sum += (1 + (comment.replies ? comment.replies.length : 0))
-    }
-
-    return sum
-  }
 
   console.log(comments)
 

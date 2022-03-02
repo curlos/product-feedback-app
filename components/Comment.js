@@ -2,16 +2,15 @@ import React from 'react'
 import styles from '../styles/Comment.module.scss'
 import Image from 'next/image'
 
-const Comment = ({ comment, isLastComment }) => {
+const Comment = ({ comment, isLastComment, isReply }) => {
   console.log(comment)
-
-  console.log(isLastComment)
+  console.log(comment && comment.replies)
 
 
   return (
     <>
     {comment ? (
-      <div className={`${styles.container}${!isLastComment ? (' ' + styles.bottomBorderGray) : ''}`}>
+      <div className={`${styles.container}${!isLastComment && !isReply ? (' ' + styles.bottomBorderGray) : ''} ${isReply ? ('' + styles.replyWrapper) : ''}`}>
         <div className={styles.commentInfo}>
           <div>
             <Image src={comment.user.image.slice(1,)} alt="" width={40} height={40} className={styles.userImage} />
@@ -30,12 +29,17 @@ const Comment = ({ comment, isLastComment }) => {
             </div>
 
             <div className={styles.content}>
-              {comment.content}
+              <span className={styles.replyTag}>
+                {isReply && (`@${comment.replyingTo} `)}
+              </span>
+              <span>{comment.content}</span>
             </div>
           </div>
         </div>
 
-        <div>a</div>
+        {comment.replies && comment.replies.map((reply) => (
+          <Comment key={reply.id} comment={reply} isReply={true} />
+        ))}
       </div>
     ) : (
       <div>Loading...</div>

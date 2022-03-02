@@ -1,11 +1,19 @@
 .container {
   background-color: #FFFFFF;
+  padding: 30px 20px;
+
+  &.bottomBorderGray {
+    border-bottom: 2px solid #D5D6DF;
+  }
+
+  &.replyWrapper {
+    margin-left: 30px;
+  }
 }
 
 .commentInfo {
-  padding: 30px 20px;
   display: flex;
-  gap: 15px;
+  gap: 30px;
 
   .userImage {
     border-radius: 50%;
@@ -36,16 +44,19 @@
         background-color: transparent;
         font-size: 13px;
         font-weight: 600;
+        color: #4661E6;
       }
     }
 
     .content {
       color: #647196;
       margin-top: 15px;
-    }
-  }
 
-  &.bottomBorderGray {
-    border-bottom: 2px solid #D5D6DF;
+      .replyTag {
+        color: #AD1FEA;
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
   }
 }
