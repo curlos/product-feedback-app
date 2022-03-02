@@ -1,7 +1,14 @@
+@import 'media-queries';
+
 .container {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .cardBoardName {
@@ -13,6 +20,10 @@
   background: url('/assets/suggestions/desktop/background-header.png');
   background-size: cover;
   height: 137px;
+
+  @include tablet {
+    height: 100%;
+  }
 
   color: #FFFFFF;
 
@@ -30,17 +41,26 @@
 
 .cardBoardTags {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 10px;
   padding: 30px;
   background-color: #FFFFFF;
   border-radius: 10px;
 
+  @include tablet {
+    padding: 15px;
+    gap: 10px;
+  }
+
   .tag {
     border-radius: 15px;
     background-color: #F2F4FF;
     color: #4661E6;
     padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
 
     &.selected {
       background-color: #4661E6;
@@ -60,7 +80,7 @@
     align-items: center;
     margin-bottom: 30px;
 
-    h3 {
+    h2 {
       font-weight: bold;
       font-size: 18px;
       letter-spacing: -0.25px;
