@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getData } from '../../utils/getData'
 import Feedback from '../../components/Feedback'
+import CommentList from '../../components/CommentList'
 import styles from '../../styles/FeedbackDetailsPage.module.scss'
 
 const FeedbackDetail = () => {
@@ -33,6 +34,8 @@ const FeedbackDetail = () => {
         </div>
 
         <Feedback suggestion={suggestion} />
+
+        <CommentList comments={suggestion.comments} />
       </div>
     ) : (
       <div>Loading...</div>
