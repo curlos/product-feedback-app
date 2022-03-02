@@ -16,15 +16,24 @@ const FeedbackList = () => {
           <div>Sort by: Most Upvotes</div>
         </div>
 
-        <div>
-          <button type="button" className={styles.addFeedback}>
-            Add Feedback
-          </button>
-        </div>
+        <button type="button" className={styles.addFeedback}>
+          Add Feedback
+        </button>
       </div>
 
-      <div>
-        <Image src="/assets/suggestions/illustration-empty.svg" alt="" width={128} height={128}/>
+      <div className={styles.noFeedbackWrapper}>
+        <div className={styles.noFeedback}>
+          <Image src="/assets/suggestions/illustration-empty.svg" alt="" width={'129px'} height={'136px'}/>
+
+          <h2>There is no feedback yet.</h2>
+          <p>Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
+
+          <div>
+            <button type="button" className={styles.addFeedback}>
+              Add Feedback
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -1,4 +1,7 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
 }
 
@@ -26,4 +29,35 @@
   padding: 15px 30px;
   font-size: 14px;
   font-weight: bold;
+}
+
+.noFeedbackWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.noFeedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  width: 60%;
+
+  h2 {
+    font-weight: bold;
+    font-size: 24px;
+    color: #3A4374;
+  }
+
+  p {
+    font-size: 16px;
+    color: #647196;
+  }
 }
