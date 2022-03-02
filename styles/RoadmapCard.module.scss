@@ -48,6 +48,10 @@
     font-size: 18px;
     letter-spacing: -0.25px;
     color: #3A4374;
+
+    @include tablet {
+      font-size: 13px;
+    }
   }
 
   .category {

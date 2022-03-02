@@ -5,11 +5,14 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 30px 0px;
+  padding: 70px 0px;
 
   .wrapper {
     width: 60%;
+
+    @include tablet {
+      width: 75%;
+    }
 
     .header {
       margin-bottom: 50px;

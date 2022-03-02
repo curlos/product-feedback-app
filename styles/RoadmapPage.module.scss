@@ -5,6 +5,10 @@
   min-height: 100vh;
   background-color: #F7F8FD;
 
+  @include tablet {
+    padding: 50px 30px;
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -62,9 +66,19 @@
       letter-spacing: -0.25px;
     }
 
+    h4 {
+      @include tablet {
+        font-size: 13px;
+      }
+    }
+
     p {
       font-size: 16px;
       color: #647196;
+
+      @include tablet {
+        font-size: 13px;
+      }
     }
 
     .requests {

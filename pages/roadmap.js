@@ -30,12 +30,12 @@ const roadmap = () => {
           <h2>Roadmap</h2>
         </div>
 
-        <div>
+        <Link href="/feedback/new" passHref>
           <button type="button" className={styles.addFeedback}>
             <Image src="/assets/shared/icon-plus.svg" alt="" width={10} height={10} />
             Add Feedback
           </button>
-        </div>
+        </Link>
       </div>
 
       <div className={styles.sections}>
@@ -53,7 +53,7 @@ const roadmap = () => {
 
         <div className={styles.section}>
           <h3>In-Progress ({inProgressRequests.length})</h3>
-          <p>Ideas prioritized for research</p>
+          <p>Currently being developed</p>
 
           <div className={styles.requests}>
             {inProgressRequests.map((request) => (
@@ -64,7 +64,7 @@ const roadmap = () => {
 
         <div className={styles.section}>
           <h3>Live ({liveRequests.length})</h3>
-          <p>Ideas prioritized for research</p>
+          <p>Released features</p>
 
           <div className={styles.requests}>
             {liveRequests.map((request) => (

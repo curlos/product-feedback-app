@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useState } from 'react'
 import styles from '../styles/LeftSidebar.module.scss'
 
@@ -43,7 +44,9 @@ const LeftSidebar = () => {
       <div className={styles.cardRoadmap}>
         <div className={styles.topNav}>
           <h2>Roadmap</h2>
-          <button>View</button>  
+          <Link href="/roadmap" passHref>
+            <button>View</button>  
+          </Link>  
         </div>
         
 

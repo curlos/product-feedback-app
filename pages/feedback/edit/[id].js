@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from '../../../styles/FeedbackForm.module.scss'
+import styles from '../../../styles/NewFeedbackPage.module.scss'
 import Dropdown from '../../../components/Dropdown'
 import { getData } from '../../../utils/getData'
 
@@ -92,9 +92,11 @@ const EditFeedbackPage = () => {
             </div>
 
             <div className={styles.rightButtons}>
-              <button className={styles.cancel}>
-                Cancel
-              </button>
+              <Link href="/" passHref>
+                <button className={styles.cancel}>
+                  Cancel
+                </button>
+              </Link>
 
               <button className={styles.add}>
                 Save Changes

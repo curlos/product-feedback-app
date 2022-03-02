@@ -4,6 +4,10 @@
   min-height: 100vh;
   background-color: #F7F8FD;
   padding: 70px;
+
+  @include tablet {
+    padding: 40px;
+  }
 }
 
 .header {

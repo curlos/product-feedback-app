@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from '../../styles/FeedbackForm.module.scss'
+import styles from '../../styles/NewFeedbackPage.module.scss'
 import Dropdown from '../../components/Dropdown'
 
 const CATEGORIES = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug']
@@ -48,8 +48,6 @@ const NewFeedbackPage = () => {
           <div className={styles.section}>
             <label htmlFor="category" className={styles.labelTitle}>Category</label><br />
             <label htmlFor="category" className={styles.labelDesc}>Choose a cateogry for your feedback</label><br />
-            <input name="category" value={category} onChange={(e) => setCategory(e.target.value)} />
-
             <Dropdown options={CATEGORIES} />
           </div>
 
@@ -60,9 +58,11 @@ const NewFeedbackPage = () => {
           </div>
 
           <div className={styles.actionButtons}>
-            <button className={styles.cancel}>
-              Cancel
-            </button>
+            <Link href="/" passHref>
+              <button className={styles.cancel}>
+                Cancel
+              </button>
+            </Link>
 
             <button className={styles.add}>
               Add Feedback
