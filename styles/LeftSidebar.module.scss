@@ -27,3 +27,24 @@
     font-size: 15px;
   }
 }
+
+.cardBoardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+
+  .tag {
+    border-radius: 15px;
+    background-color: #F2F4FF;
+    color: #4661E6;
+    padding: 10px 20px;
+
+    &.selected {
+      background-color: #4661E6;
+      color: #F2F4FF;
+    }
+  }
+}
