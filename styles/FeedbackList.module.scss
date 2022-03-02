@@ -8,6 +8,7 @@
 .topBar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #373F68;
   border-radius: 10px;
   padding: 20px;
@@ -18,7 +19,11 @@
 .topBarLeft {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
+
+  .suggestionsTitle {
+    font-size: 18px;
+  }
 }
 
 .addFeedback {

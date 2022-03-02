@@ -18,8 +18,12 @@
     color: #3A4374;
     width: 100%;
 
-    img {
+    .arrow {
       color: #4661E6;
+    }
+
+    .selected {
+      font-weight: bold;
     }
 
     &.active {
@@ -52,6 +56,21 @@
 
     .selected {
       color: #AD1FEA;
+    }
+  }
+
+  &.dark {
+    .dropdownButton {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      color: #F2F4FE;
+      opacity: 75%;
+      margin: 0;
+
+      .arrow {
+        border-color: white;
+      }
     }
   }
 }

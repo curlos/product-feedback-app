@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/FeedbackList.module.scss'
 import { getData } from '../utils/getData'
 import Feedback from './Feedback'
+import SortDropdown from './SortDropdown'
 
 const FeedbackList = () => {
 
@@ -14,13 +15,11 @@ const FeedbackList = () => {
     <div className={styles.container}>
       <div className={styles.topBar}>
         <div className={styles.topBarLeft}>
-          <div>
-            <Image src="/assets/suggestions/icon-suggestions.svg" alt="" width={24} height={24}/>
-          </div>
+          <Image src="/assets/suggestions/icon-suggestions.svg" alt="" width={24} height={24}/>
 
-          <div>0 Suggestions</div>
+          <h3 className={styles.suggestionsTitle}>{data.productRequests.length} Suggestions</h3>
 
-          <div>Sort by: Most Upvotes</div>
+          <SortDropdown />
         </div>
 
         <button type="button" className={styles.addFeedback}>
