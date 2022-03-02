@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../../styles/FeedbackForm.module.scss'
-import Dropdown from '../../components/Dropdown'
+import CategoriesDropdown from '../../components/CategoriesDropdown'
 
 const NewFeedbackPage = () => {
 
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [detail, setDetail] = useState('')
-  const CATEGORIES = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug']
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +48,7 @@ const NewFeedbackPage = () => {
             <label htmlFor="category" className={styles.labelDesc}>Choose a cateogry for your feedback</label><br />
             <input name="category" value={category} onChange={(e) => setCategory(e.target.value)} />
 
-            <Dropdown options={CATEGORIES} />
+            <CategoriesDropdown />
           </div>
 
           <div className={styles.section}>
