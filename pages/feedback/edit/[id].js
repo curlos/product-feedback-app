@@ -53,10 +53,10 @@ const EditFeedbackPage = () => {
         <form onSubmit={handleSubmit}>
 
           <button className={styles.addIconButton}>
-            <Image src="/assets/shared/icon-plus.svg" alt="" width={16} height={16} />
+            <Image src="/assets/shared/icon-edit-feedback.svg" alt="" width={56} height={56} />
           </button>
 
-          <h2>Editing {title}</h2>
+          <h2>Editing &apos;{title}&apos;</h2>
 
           <div className={styles.section}>
             <label htmlFor="title" className={styles.labelTitle}>Feedback Title</label><br />

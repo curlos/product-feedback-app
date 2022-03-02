@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../../styles/FeedbackForm.module.scss'
-import CategoriesDropdown from '../../components/Dropdown'
+import Dropdown from '../../components/Dropdown'
+
+const CATEGORIES = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug']
 
 const NewFeedbackPage = () => {
 
@@ -32,7 +34,7 @@ const NewFeedbackPage = () => {
         <form onSubmit={handleSubmit}>
 
           <button className={styles.addIconButton}>
-            <Image src="/assets/shared/icon-plus.svg" alt="" width={16} height={16} />
+            <Image src="/assets/shared/icon-new-feedback.svg" alt="" width={56} height={56} />
           </button>
 
           <h2>Create New Feedback</h2>
@@ -48,7 +50,7 @@ const NewFeedbackPage = () => {
             <label htmlFor="category" className={styles.labelDesc}>Choose a cateogry for your feedback</label><br />
             <input name="category" value={category} onChange={(e) => setCategory(e.target.value)} />
 
-            <CategoriesDropdown />
+            <Dropdown options={CATEGORIES} />
           </div>
 
           <div className={styles.section}>
