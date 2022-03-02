@@ -24,6 +24,7 @@ const FeedbackList = () => {
         </div>
 
         <button type="button" className={styles.addFeedback}>
+          <Image src="/assets/shared/icon-plus.svg" alt="" width={10} height={10} />
           Add Feedback
         </button>
       </div>

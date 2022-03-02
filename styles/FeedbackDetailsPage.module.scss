@@ -1,0 +1,36 @@
+.container {
+  min-height: 100vh;
+  background-color: #F7F8FD;
+  padding: 70px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .backButton {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .editFeedbackButton {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4661E6;
+    color: #F2F4FE;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

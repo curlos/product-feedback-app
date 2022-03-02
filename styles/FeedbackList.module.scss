@@ -22,6 +22,9 @@
 }
 
 .addFeedback {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
   background-color: #AD1FEA;
   color: #F2F4FE;
   border: none;
