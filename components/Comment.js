@@ -9,7 +9,7 @@ const Comment = ({ comment, isLastComment, isReply }) => {
 
   return (
     <>
-    {comment ? (
+    {comment && (
       <div className={`${styles.container}${!isLastComment && !isReply ? (' ' + styles.bottomBorderGray) : ''} ${isReply ? ('' + styles.replyWrapper) : ''}`}>
         <div className={styles.commentInfo}>
           <div>
@@ -41,8 +41,6 @@ const Comment = ({ comment, isLastComment, isReply }) => {
           <Comment key={reply.id} comment={reply} isReply={true} />
         ))}
       </div>
-    ) : (
-      <div>Loading...</div>
     )}
     </>
   )

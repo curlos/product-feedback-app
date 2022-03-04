@@ -40,7 +40,11 @@ const EditFeedbackPage = () => {
 
   return (
     <>
-    {!feedback ? <div>Loading...</div> : (
+    {!feedback ? (
+      <div className="pageLoaderWrapper">
+        <div className="loader" /> 
+      </div>
+    ) : (
       <div>
         <Head>
           <title>Product Feedback - Editing &apos;{feedback.title}&apos;</title>

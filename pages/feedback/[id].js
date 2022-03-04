@@ -21,7 +21,6 @@ const FeedbackDetail = () => {
 
   return (
     <>
-      
       {suggestion ? (
         <div>
           <Head>
@@ -39,7 +38,9 @@ const FeedbackDetail = () => {
                 </button>
               </Link>
 
-              <button className={styles.editFeedbackButton}>Edit Feedback</button>
+              <Link href={`/feedback/edit/${id}`} passHref>
+                <button className={styles.editFeedbackButton}>Edit Feedback</button>
+              </Link>
             </div>
 
             <Feedback suggestion={suggestion} />
@@ -50,7 +51,9 @@ const FeedbackDetail = () => {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div className="pageLoaderWrapper">
+          <div className="loader" /> 
+        </div>
       )}
     </>
   )

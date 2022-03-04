@@ -10,15 +10,13 @@ const CommentList = ({ comments }) => {
 
   return (
     <>
-    {comments ? (
+    {comments && (
       <div className={styles.container}>
         <h2>{getTotalComments(comments)} Comments</h2>
         {comments.map((comment, i) => (
           <Comment key={comment.id} comment={comment} isLastComment={i === comments.length - 1}/>
         ))}
       </div>
-    ) : (
-      <div>Loading...</div>
     )}
     </>
   )
