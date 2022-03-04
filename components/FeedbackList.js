@@ -18,7 +18,9 @@ const FeedbackList = () => {
         <div className={styles.topBarLeft}>
           <Image src="/assets/suggestions/icon-suggestions.svg" alt="" width={24} height={24}/>
 
-          <h3 className={styles.suggestionsTitle}>{data.productRequests.length} Suggestions</h3>
+          <h3 className={styles.suggestionsTitle}>
+            {data.productRequests.length} Suggestions
+          </h3>
 
           <SortDropdown />
         </div>

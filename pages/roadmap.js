@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getData } from '../utils/getData'
@@ -17,62 +18,69 @@ const roadmap = () => {
   console.log(inProgressRequests)
 
   return (
-    <div className={styles.container}>
+    <div>
+      <Head>
+        <title>Product Feedback - Roadmap</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
+      <div className={styles.container}>
       
-      <div className={styles.header}>
-        <div>
-          <Link href={`/`} passHref>
-            <button className={styles.backButton}>
-              <Image src="/assets/shared/icon-arrow-left.svg" alt="" width={8} height={8} />
-              Go Back
+        <div className={styles.header}>
+          <div>
+            <Link href={`/`} passHref>
+              <button className={styles.backButton}>
+                <Image src="/assets/shared/icon-arrow-left.svg" alt="" width={8} height={8} />
+                Go Back
+              </button>
+            </Link>
+            <h2>Roadmap</h2>
+          </div>
+
+          <Link href="/feedback/new" passHref>
+            <button type="button" className={styles.addFeedback}>
+              <Image src="/assets/shared/icon-plus.svg" alt="" width={10} height={10} />
+              Add Feedback
             </button>
           </Link>
-          <h2>Roadmap</h2>
         </div>
 
-        <Link href="/feedback/new" passHref>
-          <button type="button" className={styles.addFeedback}>
-            <Image src="/assets/shared/icon-plus.svg" alt="" width={10} height={10} />
-            Add Feedback
-          </button>
-        </Link>
-      </div>
+        <div className={styles.sections}>
 
-      <div className={styles.sections}>
+          <div className={styles.section}>
+            <h3>Planned ({plannedRequests.length})</h3>
+            <p>Ideas prioritized for research</p>
 
-        <div className={styles.section}>
-          <h3>Planned ({plannedRequests.length})</h3>
-          <p>Ideas prioritized for research</p>
-
-          <div className={styles.requests}>
-            {plannedRequests.map((request) => (
-              <RoadmapCard key={request.id} request={request} />
-            ))}
+            <div className={styles.requests}>
+              {plannedRequests.map((request) => (
+                <RoadmapCard key={request.id} request={request} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className={styles.section}>
-          <h3>In-Progress ({inProgressRequests.length})</h3>
-          <p>Currently being developed</p>
+          <div className={styles.section}>
+            <h3>In-Progress ({inProgressRequests.length})</h3>
+            <p>Currently being developed</p>
 
-          <div className={styles.requests}>
-            {inProgressRequests.map((request) => (
-              <RoadmapCard key={request.id} request={request} />
-            ))}
+            <div className={styles.requests}>
+              {inProgressRequests.map((request) => (
+                <RoadmapCard key={request.id} request={request} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className={styles.section}>
-          <h3>Live ({liveRequests.length})</h3>
-          <p>Released features</p>
+          <div className={styles.section}>
+            <h3>Live ({liveRequests.length})</h3>
+            <p>Released features</p>
 
-          <div className={styles.requests}>
-            {liveRequests.map((request) => (
-              <RoadmapCard key={request.id} request={request} />
-            ))}
+            <div className={styles.requests}>
+              {liveRequests.map((request) => (
+                <RoadmapCard key={request.id} request={request} />
+              ))}
+            </div>
           </div>
+          
         </div>
-        
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -20,29 +21,37 @@ const FeedbackDetail = () => {
 
   return (
     <>
-    {suggestion ? (
-      <div className={styles.container}>
-        
-        <div className={styles.header}>
-          <Link href={`/`} passHref>
-            <button className={styles.backButton}>
-              <Image src="/assets/shared/icon-arrow-left.svg" alt="" width={8} height={8} />
-              Go Back
-            </button>
-          </Link>
+      
+      {suggestion ? (
+        <div>
+          <Head>
+            <title>Product Feedback - {suggestion.title}</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          </Head>
 
-          <button className={styles.editFeedbackButton}>Edit Feedback</button>
+          <div className={styles.container}>
+          
+          <div className={styles.header}>
+              <Link href={`/`} passHref>
+                <button className={styles.backButton}>
+                  <Image src="/assets/shared/icon-arrow-left.svg" alt="" width={8} height={8} />
+                  Go Back
+                </button>
+              </Link>
+
+              <button className={styles.editFeedbackButton}>Edit Feedback</button>
+            </div>
+
+            <Feedback suggestion={suggestion} />
+
+            <CommentList comments={suggestion.comments} />
+
+            <NewCommentForm />
+          </div>
         </div>
-
-        <Feedback suggestion={suggestion} />
-
-        <CommentList comments={suggestion.comments} />
-
-        <NewCommentForm />
-      </div>
-    ) : (
-      <div>Loading...</div>
-    )}
+      ) : (
+        <div>Loading...</div>
+      )}
     </>
   )
 }
