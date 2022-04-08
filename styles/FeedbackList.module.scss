@@ -6,6 +6,25 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  
+  @include mobile {
+    margin-top: 80px;
+  }
+}
+
+.listContainer {
+  padding: 70px;
+  padding-top: 0px;
+
+  @include tablet {
+    padding: 40px;
+    padding-top: 0px;
+  }
+
+  @include mobile {
+    padding: 20px;
+    padding-top: 0px;
+  }
 }
 
 .topBar {
@@ -17,6 +36,20 @@
   padding: 20px;
   color: #F2F4FE;
   font-size: 18px;
+
+  margin: 70px;
+  margin-bottom: 0px;
+
+  @include tablet {
+    margin: 40px;
+    margin-bottom: 0px;
+  }
+
+  @include mobile {
+    margin: 0px;
+    border-radius: 0px;
+    padding: 10px;
+  }
 }
 
 .topBarLeft {
@@ -26,6 +59,19 @@
 
   .suggestionsTitle {
     font-size: 18px;
+
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+.bulbIcon {
+  width: 24px;
+  height: 24px;
+
+  @include mobile {
+    display: none;
   }
 }
 

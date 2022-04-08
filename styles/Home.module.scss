@@ -4,13 +4,11 @@
   display: grid;
   grid-template-columns: 2fr 5fr;
   gap: 15px;
-  padding: 70px;
   min-height: 100vh;
   background-color: #F7F8FD;
 
   @include tablet {
     display: flex;
     flex-direction: column;
-    padding: 40px;
   }
 }

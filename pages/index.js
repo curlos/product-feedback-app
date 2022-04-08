@@ -3,6 +3,7 @@ import Image from 'next/image'
 import LeftSidebar from '../components/LeftSidebar'
 import FeedbackList from '../components/FeedbackList'
 import styles from '../styles/Home.module.scss'
+import Navbar from '../components/Navbar'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
 
       <div className={styles.container}>
         <LeftSidebar />
+        <Navbar />
         <FeedbackList />
       </div>
     </div>

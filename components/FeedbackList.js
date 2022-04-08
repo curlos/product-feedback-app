@@ -16,7 +16,7 @@ const FeedbackList = () => {
     <div className={styles.container}>
       <div className={styles.topBar}>
         <div className={styles.topBarLeft}>
-          <Image src="/assets/suggestions/icon-suggestions.svg" alt="" width={24} height={24}/>
+          <img src="/assets/suggestions/icon-suggestions.svg" alt="" className={styles.bulbIcon}/>
 
           <h3 className={styles.suggestionsTitle}>
             {data.productRequests.length} Suggestions
@@ -33,29 +33,31 @@ const FeedbackList = () => {
         </Link>
       </div>
 
-      {data.productRequests.length === 0 ? (
-        <div className={styles.noFeedbackWrapper}>
-          <div className={styles.noFeedback}>
-            <Image src="/assets/suggestions/illustration-empty.svg" alt="" width={'129px'} height={'136px'}/>
+      <div className={styles.listContainer}>
+        {data.productRequests.length === 0 ? (
+          <div className={styles.noFeedbackWrapper}>
+            <div className={styles.noFeedback}>
+              <Image src="/assets/suggestions/illustration-empty.svg" alt="" width={'129px'} height={'136px'}/>
 
-            <h2>There is no feedback yet.</h2>
-            <p>Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
+              <h2>There is no feedback yet.</h2>
+              <p>Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
 
-            <Link href="/feedback/new" passHref>
-              <button type="button" className={styles.addFeedback}>
-                <Image src="/assets/shared/icon-plus.svg" alt="" width={10} height={10} />
-                Add Feedback
-              </button>
-            </Link>
+              <Link href="/feedback/new" passHref>
+                <button type="button" className={styles.addFeedback}>
+                  <Image src="/assets/shared/icon-plus.svg" alt="" width={10} height={10} />
+                  Add Feedback
+                </button>
+              </Link>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className={styles.feedbackList}>
-          {data.productRequests.map((suggestion) => (
-            <Feedback key={suggestion.id} suggestion={suggestion} />
-          ))}
-        </div>
-      )}
+        ) : (
+          <div className={styles.feedbackList}>
+            {data.productRequests.map((suggestion) => (
+              <Feedback key={suggestion.id} suggestion={suggestion} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

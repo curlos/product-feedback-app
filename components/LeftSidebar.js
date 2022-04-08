@@ -1,25 +1,32 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import styles from '../styles/LeftSidebar.module.scss'
+import { getData } from '../utils/getData'
 
 const LeftSidebar = () => {
 
+  const { productRequests } = getData()
+  const plannedRequests = productRequests.filter((request) => request.status === 'planned')
+  const inProgressRequests = productRequests.filter((request) => request.status === 'in-progress')
+  const liveRequests = productRequests.filter((request) => request.status === 'live')
+
   const tags = ['All', 'UI', 'UX', 'Enhancement', 'Bug', 'Feature']
-  const [selected, setSelected] = useState('All')
+  const [selectedFilter, setSelectedFilter] = useState('All')
+
   const [roadmap, setRoadmap] = useState({
     planned: {
       name: 'Planned',
-      num: '2',
+      num: plannedRequests.length,
       color: 'bgYellow'
     },
     inProgress: {
       name: 'In-Progress',
-      num: '3',
+      num: inProgressRequests.length,
       color: 'bgPurple'
     },
     live: {
       name: 'Live',
-      num: '1',
+      num: liveRequests.length,
       color: 'bgGreen'
     }
   })
@@ -34,7 +41,7 @@ const LeftSidebar = () => {
 
       <div className={styles.cardBoardTags}>
         {tags.map((tag) => (
-          <div key={tag} className={`${styles.tag}${tag === selected ? (' ' + styles.selected) : ''}`}>
+          <div key={tag} className={`${styles.tag}${tag === selectedFilter ? (' ' + styles.selected) : ''}`} onClick={() => setSelectedFilter(tag)}>
             {tag}
           </div>
         ))}

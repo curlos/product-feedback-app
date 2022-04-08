@@ -9,74 +9,110 @@
   border-radius: 10px;
   cursor: pointer;
 
-  .left {
+  @include mobile {
+    display: none;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .middle {
     display: flex;
-    align-items: center;
-    gap: 20px;
-
-    .upvotes {
-      align-self: flex-start;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-
-      background-color: #F2F4FE;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 13px;
-      width: 40px;
-      height: 55px;
-
-      img {
-        border: 2px solid #4661E6;
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    .middle {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 10px;
-    }
-
-    .title {
-      font-size: 18px;
-      letter-spacing: -0.25px;
-      color: #3A4374;
-    }
-
-    .description {
-      color: #647196;
-    }
-
-    .category {
-      color: #4661E6;
-      background-color: #F2F4FF;
-      border-radius: 10px;
-      padding: 10px;
-      width: auto;
-      border: none;
-      font-size: 13px;
-      font-weight: 600;
-    }
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
   }
 
-  .right {
+  .title {
+    font-size: 18px;
+    letter-spacing: -0.25px;
+    color: #3A4374;
+  }
+
+  .description {
+    color: #647196;
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  div {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .noComments {
+    opacity: 50%;
+  }
+}
+
+.upvotes {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+
+  background-color: #F2F4FE;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  min-width: 40px;
+  min-height: 55px;
+
+  img {
+    border: 2px solid #4661E6;
+    margin: 0;
+    padding: 0;
+  }
+
+  @include mobile {
+    flex-direction: row;
+    min-height: auto;
+    min-width: auto;
+  }
+}
+
+.category {
+  color: #4661E6;
+  background-color: #F2F4FF;
+  border-radius: 10px;
+  padding: 10px;
+  width: auto;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.mobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+
+  .category {
+    margin-top: 10px;
+  }
+}
+
+.bottomActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+
+  .commentsContainer {
     display: flex;
     align-items: center;
     gap: 10px;
-
-    div {
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .noComments {
-      opacity: 50%;
-    }
   }
 }

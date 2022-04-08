@@ -1,0 +1,31 @@
+@import 'media-queries';
+
+.container {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  max-width: 100%;
+
+  @include mobile {
+    display: flex;
+    background-image: url('/assets/suggestions/mobile/background-header.png');
+    background-repeat: none;
+    background-size: cover;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    color: #FFFFFF;
+    height: 80px;
+    z-index: 1;
+
+    strong {
+      font-size: 15px;
+      letter-spacing: -0.19px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+}
