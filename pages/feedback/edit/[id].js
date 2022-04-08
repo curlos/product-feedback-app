@@ -96,22 +96,24 @@ const EditFeedbackPage = () => {
               </div>
 
               <div className={`${styles.actionButtons} ${styles.editButtons}`}>
-                <div>
+                <div className={`${styles.buttonWrapper}`}>
                   <button className={styles.delete}>
                     Delete
                   </button>
                 </div>
 
                 <div className={styles.rightButtons}>
-                  <Link href="/" passHref>
-                    <button className={styles.cancel}>
-                      Cancel
-                    </button>
-                  </Link>
+                  <div className={`${styles.buttonWrapper}`}>
+                    <Link href="/" passHref>
+                      <button className={styles.cancel}>
+                        Cancel
+                      </button>
+                    </Link>
+                  </div>
 
                   <button className={styles.add}>
-                    Save Changes
-                  </button>
+                      Save Changes
+                    </button>
                 </div>
               </div>
             </form>

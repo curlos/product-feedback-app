@@ -8,6 +8,10 @@
   @include tablet {
     padding: 40px;
   }
+
+  @include mobile {
+    padding: 20px;
+  }
 }
 
 .header {
