@@ -1,0 +1,24 @@
+@import 'media-queries';
+
+.container {
+  display: none;
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 0.5px solid #979797;
+  }
+}
+
+.option {
+  padding: 15px;
+  color: #ABB0C7;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.selected {
+  border-bottom: 4.5px solid #AD1FEA;
+  color: #3A4374;
+}

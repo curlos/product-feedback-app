@@ -1,21 +1,57 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getData } from '../utils/getData'
 import styles from '../styles/RoadmapPage.module.scss'
 import RoadmapCard from '../components/RoadmapCard'
+import RoadmapOptions from '../components/RoadmapOptions'
 
-const roadmap = () => {
+const Roadmap = () => {
   const { productRequests } = getData()
   const plannedRequests = productRequests.filter((request) => request.status === 'planned')
   const inProgressRequests = productRequests.filter((request) => request.status === 'in-progress')
   const liveRequests = productRequests.filter((request) => request.status === 'live')
+  const [filter, setFilter] = useState('planned')
+  const [selectedRequests, setSelectedRequests] = useState(plannedRequests)
+
+  console.log(plannedRequests)
+
+  const requestsObj = {
+    'planned': {
+      name: 'Planned',
+      description: 'Ideas prioritized for research',
+      requests: [...plannedRequests]
+    },
+    'in-progress': {
+      name: 'In-Progress',
+      description: 'Currently being developed',
+      requests: [...inProgressRequests]
+    },
+    'live': {
+      name: 'Live',
+      description: 'Released features',
+      requests: [...liveRequests]
+    },
+  }
 
   console.log(productRequests)
 
   console.log(plannedRequests)
   console.log(inProgressRequests)
+
+  useEffect(() => {
+    switch(filter) {
+      case 'planned':
+        return setSelectedRequests(plannedRequests)
+      case 'in-progress':
+        return setSelectedRequests(inProgressRequests)
+      case 'live':
+        return setSelectedRequests(liveRequests)
+      default:
+        return setSelectedRequests(plannedRequests)
+    }
+  }, [filter])
 
   return (
     <div>
@@ -45,7 +81,7 @@ const roadmap = () => {
           </Link>
         </div>
 
-        <div className={styles.sections}>
+        <div className={`${styles.sections} ${styles.tabletAndUp}`}>
 
           <div className={styles.section}>
             <h3>Planned ({plannedRequests.length})</h3>
@@ -81,9 +117,24 @@ const roadmap = () => {
           </div>
           
         </div>
+
+        <RoadmapOptions plannedRequests={plannedRequests} inProgressRequests={inProgressRequests} liveRequests={liveRequests} filter={filter} setFilter={setFilter} />
+
+        <div className={`${styles.sections} ${styles.mobileOnly}`}>
+          <div className={styles.section}>
+            <h3>{requestsObj[filter].name} ({selectedRequests.length})</h3>
+            <p>{requestsObj[filter].description}</p>
+
+            <div className={styles.requests}>
+              {selectedRequests.map((request) => (
+                <RoadmapCard key={request.id} request={request} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
-export default roadmap
+export default Roadmap

@@ -1,13 +1,8 @@
 @import 'media-queries';
 
 .container {
-  padding: 70px;
   min-height: 100vh;
   background-color: #F7F8FD;
-
-  @include tablet {
-    padding: 50px 30px;
-  }
 
   .header {
     display: flex;
@@ -15,9 +10,21 @@
     align-items: center;
     background-color: #373F68;
     padding: 30px;
-    border-radius: 10px;
     color: #FFFFFF;
     margin-bottom: 40px;
+    border-radius: 10px;
+    margin: 70px 30px;
+
+    @include tablet {
+      margin: 50px 30px;
+    }
+
+    @include mobile {
+      margin: 0px;
+      border-radius: 0px;
+      padding: 25px;
+    }
+    
 
     .backButton {
       border: none;
@@ -34,11 +41,19 @@
       &:hover {
         text-decoration: underline;
       }
+
+      @include mobile {
+        font-size: 13px;
+      }
     }
 
     h2 {
       font-size: 24px;
       letter-spacing: -0.33px;
+
+      @include mobile {
+        font-size: 18px;
+      }
     }
 
     .addFeedback {
@@ -59,6 +74,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
+    
+    padding: 70px 30px;
+    padding-top: 0px;
+
+    @include tablet {
+      padding: 50px 30px;
+      padding-top: 0px;
+    }
+
+    @include mobile {
+      display: block;
+      margin-top: 30px;
+    }
 
     h3 {
       color: #3A4374;
@@ -87,5 +115,19 @@
       gap: 15px;
       margin-top: 30px;
     }
+  }
+}
+
+.sections.tabletAndUp {
+  @include mobile {
+    display: none;
+  }
+}
+
+.sections.mobileOnly {
+  display: none;
+
+  @include mobile {
+    display: block;
   }
 }
